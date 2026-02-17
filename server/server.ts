@@ -16,7 +16,9 @@ const startServer = async () => {
 
   // ✅ CORS (allow local dev frontends)
   app.use(cors({
-  origin: ['http://localhost:5173', 'https://thumbnail-generator-33oq.onrender.com/'],
+  origin: ['http://localhost:5173', 'http://localhost:3000',
+    'https://thumbnailgenerator-eight.vercel.app/'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
