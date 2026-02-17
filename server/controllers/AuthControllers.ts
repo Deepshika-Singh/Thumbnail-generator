@@ -3,7 +3,7 @@ import type { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-import User from "../models/User.ts";
+import User from "../models/User.js";
 
 const createToken = (userId: string) => {
   const secret = process.env.JWT_SECRET;

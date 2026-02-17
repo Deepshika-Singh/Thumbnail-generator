@@ -1,13 +1,13 @@
-import "./configs/env.ts";
+import "./configs/env.js";
 
 import express from "express";
 import type { Request, Response } from "express";
 import cors from "cors";
 
-import connectDb from "./configs/db.ts";
-import AuthRouter from "./routes/AuthRoutes.ts";
-import thumbnailRoutes from "./routes/ThumbnailRoutes.ts";
-import contactRoutes from "./routes/ContactRoutes.ts";
+import connectDb from "./configs/db.js";
+import AuthRouter from "./routes/AuthRoutes.js";
+import thumbnailRoutes from "./routes/ThumbnailRoutes.js";
+import contactRoutes from "./routes/ContactRoutes.js";
 
 const startServer = async () => {
   await connectDb();

@@ -18,8 +18,8 @@ import {
   getMyThumbnails, 
   saveThumbnail,
   deleteThumbnail 
-} from "../controllers/ThumnailController.ts";
-import protect from "../middlewares/auth.ts";
+} from "../controllers/ThumnailController.js";
+import protect from "../middlewares/auth.js";
 
 const router = express.Router();
 

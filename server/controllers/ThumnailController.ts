@@ -182,7 +182,7 @@
 
 import type { Request, Response } from "express";
 import axios from "axios";
-import Thumbnail from "../models/Thumbnail.ts";
+import Thumbnail from "../models/Thumbnail.js";
 
 export const generateThumbnail = async (req: Request, res: Response) => {
   try {
