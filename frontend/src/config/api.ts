@@ -1,7 +1,7 @@
 import { getStoredToken } from "../context/AuthContext";
 
-const BACKEND_URL = import.meta.env.VITE_API_BASE_URL;
-const WORKER_URL = import.meta.env.VITE_THUMBNAIL_WORKER_URL;
+const BACKEND_URL = import.meta.env.VITE_API_BASE_URL as string;
+const WORKER_URL = import.meta.env.VITE_THUMBNAIL_WORKER_URL as string;
 
 export const apiFetch = async (path: string, options: RequestInit = {}) => {
   const token = getStoredToken();
