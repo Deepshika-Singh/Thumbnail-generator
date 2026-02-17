@@ -18,8 +18,7 @@ const startServer = async () => {
  app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://thumbnailgenerator-eight.vercel.app',
-    'https://thumbnail-generator-ng3sezpim-deepshika-singhs-projects.vercel.app'
+    'https://thumbnailgenerator-eight.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
