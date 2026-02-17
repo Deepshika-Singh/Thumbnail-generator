@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "thumbnail-worker",
+  "main": "src/index.js",
+  "compatibility_date": "2026-02-05",
+  "observability": {
+    "enabled": true
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  }
+
+  // Optional: Uncomment and configure if you need env vars, assets, or services
+  /*
+  "vars": {
+    "MY_VARIABLE": "production_value"
+  },
+  "assets": {
+    "directory": "./public/",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "MY_SERVICE",
+      "service": "my-service"
+    }
+  ]
+  */
+}

@@ -1,0 +1,42 @@
+# =========================
+# Node Modules (Frontend + Server)
+# =========================
+frontend/node_modules/
+server/node_modules/
+
+# =========================
+# Environment Files
+# =========================
+frontend/.env
+server/.env
+
+# =========================
+# Vite Build Output (Frontend)
+# =========================
+frotend/dist/
+
+# =========================
+# If you build backend later
+# =========================
+server/dist/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS Files (Windows + Mac)
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# TypeScript Cache
+# =========================
+*.tsbuildinfo
