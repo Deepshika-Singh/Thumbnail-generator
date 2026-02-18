@@ -26,16 +26,10 @@ const startServer = async () => {
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-  app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.status(200).end();
-});
 
   // ✅ JSON body parsing
   app.use(express.json({ limit: '50mb' }));
+  app.use(express.urlencoded({ extended: true }));
 
   // ✅ ROUTES
   app.use("/", AuthRouter);
@@ -43,12 +37,41 @@ const startServer = async () => {
   app.use("/thumbnail", thumbnailRoutes);
 
   app.get("/", (_req: Request, res: Response) => {
-    res.send("Server is Live!");
+    res.json({ 
+      success: true, 
+      message: "Server is Live!",
+      endpoints: {
+        auth: "/test",
+        login: "/login",
+        register: "/register",
+        thumbnails: "/thumbnail/my-generations",
+        contact: "/contact/send"
+      }
+    });
   });
+
+  // ✅ 404 handler
+  app.use((req: Request, res: Response) => {
+    res.status(404).json({ 
+      success: false, 
+      message: `Route ${req.method} ${req.path} not found` 
+    });
+  });
+
+  // ✅ Error handler
+  app.use((err: any, req: Request, res: Response, next: any) => {
+    console.error("Server error:", err);
+    res.status(500).json({ 
+      success: false, 
+      message: err.message || "Internal server error" 
+    });
+  });
+
 
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
+    console.log(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
   });
 };
 
