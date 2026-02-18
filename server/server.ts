@@ -18,15 +18,15 @@ const startServer = async () => {
  app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://thumbnailgenerator-eight.vercel.app',
-    'https://thumbnail-generator-ng3sezpim-deepshika-singhs-projects.vercel.app'
+    'https://thumbnail-generator-topaz.vercel.app',
+    'https://thumbnail-generator-topaz.vercel.app/'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-
+  app.options('*', cors());
   // ✅ JSON body parsing
   app.use(express.json({ limit: '50mb' }));
 

@@ -22,4 +22,13 @@ AuthRouter.get("/verify", protect, verifyUser);
 // Logout (client will delete token; route kept for completeness/telemetry)
 AuthRouter.post("/logout", protect, logoutUser);
 
+// ✅ TEST ENDPOINT - Add this to verify backend is working
+AuthRouter.get("/test", (req, res) => {
+  res.json({ 
+    success: true, 
+    message: "Auth backend is working!",
+    timestamp: new Date().toISOString()
+  });
+});
+
 export default AuthRouter;
